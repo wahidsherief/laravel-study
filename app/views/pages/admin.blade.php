@@ -5,7 +5,7 @@
 {{ HTML::linkAction('LoginController@doLogout', 'Logout', array(), array('class' => 'btn btn-danger pull-right')) }}
 <br><br>
 <div class='bg-success alert'>
-    <p>Now in github</p>
+    <p>laravel now in github</p>
 	<strong>Welcome !!</strong> to your Dashboard
 </div>
 
