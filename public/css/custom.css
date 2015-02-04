@@ -1,0 +1,61 @@
+body{
+	overflow-x: hidden; 
+}
+
+.header{
+	background: #e1e1e1;
+	min-height: 100px;
+	padding: 5px 0 10px 0px;
+}
+
+.footer{
+	bottom: 0;
+	position: relative;
+	background: #e1e1e1;
+	min-height: 80px;
+}
+
+#main{
+	min-height: 470px;
+	background: whitesmoke;
+}
+
+.main-menu{
+	margin-top: 25px;
+	background: #e1e1e1;
+}
+
+.hometext{
+	padding: 20px;
+	text-align: justify;
+}
+
+.content{
+	padding: 20px
+}
+
+.homeimage{
+	width: 250px;
+	height: auto;
+}
+
+.login-area{
+	margin-top: 40px;
+	border: 2px solid #ccc;
+	padding: 20px;
+	background: #eee;
+}
+
+.login-area input, .login-area button{
+	width: 100%;
+}
+
+input, select, textarea{
+	border: 1px solid #ccc;
+	outline: 0;
+	height: 30px;
+}
+
+*{
+	border-radius: 0 !important
+}
