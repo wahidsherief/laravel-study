@@ -46,7 +46,9 @@ Route::get('logout', 'LoginController@doLogout');
 
 Route::get('admin', array(
 	'before' => 'auth',
-  	'uses' => 'AdminController@showAdmin',
-  	'as' => 'pages.admin'
+  	'uses' => 'AdminController@index'
 	)
 );
+
+Route::post('admin/create', 'AdminController@create');
+
