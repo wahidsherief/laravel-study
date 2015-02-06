@@ -25,7 +25,9 @@ class AdminController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		
+		$user = Userdatas::find($id);
+		return View::make('pages.admin')
+            ->with('users', $user);
 	}
 
 

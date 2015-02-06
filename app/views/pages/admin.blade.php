@@ -20,12 +20,29 @@
 			<th>Phone</th>
 		</thead>
 		<tbody>
-			@foreach($inputs as $key => $value)
-			<td>{{ ++$key }}</td>
-			<td>{{ $value->username }}</td>
-			<td>{{ $value->email }}</td>
-			<td>{{ $value->address }}</td>
-			<td>{{ $value->phone }}</td>
+			@foreach($inputs as $key => $user)
+			<tr>
+				<td>{{ ++$key }}</td>
+				<td>{{ $user->name }}</td>
+				<td>{{ $user->email }}</td>
+				<td>{{ $user->address }}</td>
+				<td>{{ $user->phone }}</td>
+				<td>
+					{{ Form::open(['route' => ['admin.show', $user->id], 'method' => 'get']) }}
+					    {{ Form::button('Details') }}
+					{{ Form::close() }}
+				</td>
+				<td>
+					{{ Form::open(['route' => ['admin.edit', $user->id], 'method' => 'get']) }}
+					    {{ Form::button('Edit') }}
+					{{ Form::close() }}
+				</td>
+				<td>
+					{{ Form::open(['route' => ['admin.delete', $user->id], 'method' => 'get']) }}
+					    {{ Form::button('Delete') }}
+					{{ Form::close() }}
+				</td>
+			</tr>
 			@endforeach
 		</tbody>
 	</table>
@@ -52,5 +69,12 @@
 	  	</div>
 	  	<button type="submit" class="btn btn-primary">Submit</button>
 	{{ Form::close() }}
-</div>        
+</div>     
+
+<div class="showOne">
+	<?php if(isset($users)){
+		var_dump($users);
+	}
+	?>
+</div>   
 @stop

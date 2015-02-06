@@ -14,7 +14,7 @@ class Userdata extends Migration {
 	{
 		Schema::create('userdatas', function($t) {
                 $t->increments('id');
-                $t->string('username', 16);
+                $t->string('name', 16);
                 $t->string('email', 64);
                 $t->string('address', 640);
                 $t->string('phone', 64);

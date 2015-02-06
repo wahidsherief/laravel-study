@@ -44,11 +44,43 @@ Route::get('/login', function(){
 Route::post('login','LoginController@doLogIn');
 Route::get('logout', 'LoginController@doLogout');
 
-Route::get('admin', array(
-	'before' => 'auth',
-  	'uses' => 'AdminController@index'
-	)
-);
+Route::get('admin', [
+  'uses' => 'AdminController@index'
+]);
 
-Route::post('admin/create', 'AdminController@create');
+Route::get('admin/{id}', [
+  'uses' => 'AdminController@show',
+  'as' => 'admin.show'
+]);
+ 
+Route::get('admin/create', [
+  'uses' => 'AdminController@create',
+  'as' => 'admin.create'
+]);
+ 
+Route::post('admin', [
+  'uses' => 'AdminController@store',
+  'as' => 'admin.store'
+]);
+ 
 
+ 
+Route::get('admin/{id}', [
+  'uses' => 'AdminController@edit',
+  'as' => 'admin.edit'
+]);
+ 
+Route::put('admin/{id}', [
+  'uses' => 'AdminController@update',
+  'as' => 'admin.update'
+]);
+ 
+Route::get('admin/{id}', [
+  'uses' => 'AdminController@delete',
+  'as' => 'admin.delete'
+]);
+ 
+Route::delete('admin/{id}', [
+  'uses' => 'AdminController@destroy',
+  'as' => 'admin.destroy'
+]);
