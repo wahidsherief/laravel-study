@@ -59,3 +59,8 @@ input, select, textarea{
 *{
 	border-radius: 0 !important
 }
+
+.datainsert{
+	background-color: #344860 !important;
+	color: white !important;
+}

@@ -10,6 +10,11 @@
 
 {{ HTML::ul($errors->all()) }}
 
+<!-- will be used to show any messages -->
+@if (Session::has('message'))
+    <div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
+
 <div class="datalist table-responsive">
 	<table class='col-md-12 table table-bordered'>
 		<thead>
@@ -28,19 +33,13 @@
 				<td>{{ $user->address }}</td>
 				<td>{{ $user->phone }}</td>
 				<td>
-					{{ Form::open(['route' => ['admin.show', $user->id], 'method' => 'get']) }}
-					    {{ Form::button('Details') }}
-					{{ Form::close() }}
+					<a class="btn btn-default" href="{{ URL::to('user/' . $user->id) }}">Details</a>
 				</td>
 				<td>
-					{{ Form::open(['route' => ['admin.edit', $user->id], 'method' => 'get']) }}
-					    {{ Form::button('Edit') }}
-					{{ Form::close() }}
+					<a class="btn btn-primary" href="{{ URL::to('edit/' . $user->id) }}">Edit</a>
 				</td>
 				<td>
-					{{ Form::open(['route' => ['admin.delete', $user->id], 'method' => 'get']) }}
-					    {{ Form::button('Delete') }}
-					{{ Form::close() }}
+					<a class="btn btn-danger" href="{{ URL::to('delete/' . $user->id) }}">Delete</a>
 				</td>
 			</tr>
 			@endforeach
@@ -49,7 +48,7 @@
 </div>
 
 
-<div class="datainsert col-md-6" style='background:#eee'>
+<div class="datainsert col-md-6" style="background:#344860; color:white">
 	{{ Form::open(array('url' => 'admin/create')) }}
 		<div class="form-group">
 		    <label for="username">Username</label>
@@ -71,10 +70,4 @@
 	{{ Form::close() }}
 </div>     
 
-<div class="showOne">
-	<?php if(isset($users)){
-		var_dump($users);
-	}
-	?>
-</div>   
 @stop
